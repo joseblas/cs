@@ -1,28 +1,29 @@
 # RFQ Implementation
 
-This projects pretends to solve the RFQ problem (Mandrill Pre Interview v1.5)
+This projects pretends to solve the RFQ problem
 
 
 # Implementations details
 
  This project has been developed with Intellij Idea, Maven and Java 8.
+
  To compile the project:
    mvn clean compile
    
  To run the tests:
-   mvn clean test
+   mvn clean verify
   
-## Libraries used
-   Junit and Mockito for testing purposes
-   Guava: Immutable list for tests. 
-   commons-lang3: for Pairs(tuples) class.
+# Libraries used
+  1.Junit and Mockito for testing purposes
+  2. Guava: Immutable list for tests.
+  3. commons-lang3: for Pairs(tuples) class.
     
-## Assumptions     
+# Assumptions
   1. LiveOrderBoard.ordersFor return orders without any kind of order.
   2. Provided classes cannot be modified
 
 
-## Optimisations not performed
+# Optimisations not performed
     There are some optimizations that have not been performed because it is premature.
      1. Implementation of equals and hashcode in the model: Order and Quote.
      2. Builder static classes for Order (useful for tests also)

@@ -18,7 +18,7 @@ public class Utils {
     /**
      * Builds the Quote object, adding the margin
      *
-     * @param opt Buy and Sell Orders matched
+     * @param opt Buy and Sell Orders price matched
      * @return Optional Quote
      */
     public static Optional<Quote> buildForQuote(Optional<Pair<Double,Double>> opt) {

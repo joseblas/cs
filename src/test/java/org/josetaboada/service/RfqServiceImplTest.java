@@ -60,8 +60,6 @@ public class RfqServiceImplTest {
         double buy = 232.71;
         double sell = 232.73;
 
-        when(board.ordersFor(USD)).thenReturn(orders);
-
         Optional<Quote> quote = service.quoteFor(USD, 200);
         Assert.assertTrue(quote.isPresent());
         Assert.assertEquals(buy - MARGIN, quote.get().bid, 0);

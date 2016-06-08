@@ -22,7 +22,14 @@ public class RfqServiceImpl implements RfqService {
     public RfqServiceImpl(LiveOrderBoard board) {
         this.board = checkNotNull(board);
     }
+    /*
+      The flow done is this:
+          List all matching Orders (buy and sell)
+           -> map to a Pair of (Buy, Something) or (Something, Sell).
+           -> reduce pairs (Something can be max or min value)
 
+           So the outcome (happy path) is a Pair of (Buy, Sell)
+     */
     public Optional<Quote> quoteFor(String currency, final int amount) {
         Optional<Pair<Double, Double>> pair = board.ordersFor(currency).stream()
                 .filter(order -> order.amount == amount)
@@ -33,7 +40,7 @@ public class RfqServiceImpl implements RfqService {
                     return Pair.<Double, Double>of(MIN_VALUE, o.price);
                 })
                 .reduce(reducePairs());
-
+        // pair is max/min value for the Quote
         return buildForQuote(pair);
     }
 
